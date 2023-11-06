@@ -1,0 +1,26 @@
+Mục tiêu
+
+Luyện tập:
+
+Cách thao tác với chuỗi.
+Viết và sử dụng các hàm trong lập trình, 
+Sử dụng vòng lặp for…in
+Mô tả
+
+Viết chương trình đếm số lần xuất hiện của một từ trong một văn bản nhất định (đã cho sẵn)
+
+Hướng dẫn
+
+Bước 1: Khai báo hàm đếm số lần xuất hiện của một từ trong một văn bản truyền vào
+
+Hàm sẽ nhận tham số truyền vào là chuỗi văn bản cần đếm
+Trong hàm, khai báo biến num_words, mang giá trị là các cặp key-value, tương ứng với từ được dếm và số lần xuất hiện của từ đó
+Sử dụng hàm split() để tách các từ trong chuỗi truyền vào và lưu thành một mảng, gán giá trị này cho biến text_list
+Sử dụng for…in để lặp qua mảng text_list, giá trị lặp sẽ là biến từ
+Sử dụng lower() để chuyển các ký tự hoa trong từ (nếu có) thành ký tự thường, sử dụng strip() để loại bỏ các khoản trắng đằng trước hoặc đằng sau từ (nếu có), sau đó gán giá trị vừa được cập này cho từ đang lặp.
+Sử dụng hàm get(key, value) để lấy giá trị đếm hiện tại của từ lặp trong num_words, nếu không tìm thấy thì giá trị mặc định ban đầu sẽ là 0
+Sau khi lấy được giá trị đếm của từ lặp trong num_words, cộng giá trị thêm 1 và gán giá trị này cho biến num_words[word] (câu lệnh này cũng sẽ thực hiện việc thêm key-value cho num_words nếu không tìm thấy từ lặp trong num_words)
+Trả biến num_words làm kết quả hàm
+Bước 2: Khai báo biến message mang giá trị là văn bản cần đếm
+
+Bước 3: Gọi hàm đếm từ và truyền message làm tham số
