@@ -1,0 +1,64 @@
+def get_product_info(products, product_id):
+    if product_id in products:
+        return products[product_id]
+    else:
+        return None
+
+def update_product(products, product_id, product_name):
+    products[product_id] = product_name
+
+def delete_product(products, product_id):
+    if product_id in products:
+        del products[product_id]
+        print(f"Deleted product with ID {product_id}")
+    else:
+        print(f"Product with ID {product_id} not found")
+
+# Khởi tạo danh sách sản phẩm (Dictionary)
+products = {1: 'Product A', 2: 'Product B', 3: 'Product C'}
+
+while True:
+    print("\nOptions:")
+    print("1. Show product list")
+    print("2. Add new product")
+    print("3. Update product name")
+    print("4. Delete product")
+    print("5. Exit")
+
+    option = int(input("Select option (1-5): "))
+
+    if option == 1:
+        print("Product List:")
+        for product_id, product_name in products.items():
+            print(f"ID: {product_id}, Name: {product_name}")
+
+    elif option == 2:
+        product_id = int(input("Enter product ID: "))
+        if get_product_info(products, product_id) is not None:
+            print(f"Product with ID {product_id} already exists.")
+        else:
+            product_name = input("Enter product name: ")
+            update_product(products, product_id, product_name)
+
+    elif option == 3:
+        product_id = int(input("Enter product ID: "))
+        product_info = get_product_info(products, product_id)
+        if product_info is not None:
+            product_name = input(f"Enter new name for product {product_id}: ")
+            update_product(products, product_id, product_name)
+        else:
+            print(f"Product with ID {product_id} not found.")
+
+    elif option == 4:
+        product_id = int(input("Enter product ID to delete: "))
+        delete_product(products, product_id)
+
+    elif option == 5:
+        break
+
+    else:
+        print("Invalid option. Please choose again.")
+
+print("\nFinal Product List:")
+for product_id, product_name in products.items():
+    print(f"ID: {product_id}, Name: {product_name}")
