@@ -1,0 +1,11 @@
+def get_min_number(numbers):
+    result = numbers[0]
+    for num in numbers:
+        if result > num:
+            result = num
+    return result
+
+numbers = [5, 3, 8, 1, 2, 7, 9, 4, 6]
+
+min_number = get_min_number(numbers)
+print("Min number:", min_number)
