@@ -1,0 +1,63 @@
+import turtle
+from datetime import datetime
+
+class Clock:
+    def __init__(self):
+        self.hour = 0
+        self.minute = 0
+        self.second = 0
+        self.pen = turtle.Turtle()
+
+    def draw_face(self):
+        self.pen.penup()
+        self.pen.goto(0, -210)
+        self.pen.pendown()
+        self.pen.circle(210)
+        
+        for _ in range(12):
+            self.pen.penup()
+            self.pen.forward(190)
+            self.pen.pendown()
+            self.pen.forward(20)
+            self.pen.penup()
+            self.pen.backward(210)
+            self.pen.right(30)
+
+    def draw_hands(self):
+        self.pen.hideturtle()
+        self.pen.penup()
+        self.pen.goto(0, 0)
+        self.pen.pendown()
+        
+        self.pen.setheading(90)
+        self.pen.right(30*self.hour + self.minute/2)
+        self.pen.forward(100)
+        
+        self.pen.penup()
+        self.pen.goto(0, 0)
+        self.pen.pendown()
+        
+        self.pen.setheading(90)
+        self.pen.right(6*self.minute)
+        self.pen.forward(170)
+        
+        self.pen.penup()
+        self.pen.goto(0, 0)
+        self.pen.pendown()
+        
+        self.pen.setheading(90)
+        self.pen.right(6*self.second)
+        self.pen.forward(190)
+        
+        turtle.done()
+
+    def update_time(self):
+        now = datetime.now()
+        self.hour = now.hour % 12
+        self.minute = now.minute
+        self.second = now.second
+
+clock = Clock()
+clock.draw_face()
+clock.update_time()
+clock.draw_hands()
