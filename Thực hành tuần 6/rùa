@@ -1,0 +1,30 @@
+import random
+import time
+
+class Rua:
+    def __init__(self, ten):
+        self.ten = ten
+        self.khoang_cach_da_di = 0
+        self.dang_chay = True
+
+    def chay(self):
+        if self.dang_chay:
+            self.khoang_cach_da_di += random.randint(1, 5)
+
+    def da_canh_dich(self):
+        return self.khoang_cach_da_di >= 100
+
+    def dung_chay(self):
+        self.dang_chay = False
+
+    def thoi_gian_chay(self, start_time):
+        return time.time() - start_time
+
+# Tạo ra hai con rùa
+rua1 = Rua("Rùa A")
+rua2 = Rua("Rùa B")
+
+# Bắt đầu đua
+start_time = time.time()
+
+while not (rua1.da_canh_dich()
