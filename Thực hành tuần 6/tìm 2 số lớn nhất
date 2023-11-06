@@ -1,1 +1,8 @@
+def tim_hai_so_lon_nhat(list_so):
+    list_so.sort()
+    return list_so[-1], list_so[-2]
+
+list_so = [10, 5, 8, 20, 3, 7]
+so_lon_nhat, so_lon_thu_hai = tim_hai_so_lon_nhat(list_so)
+print(f"Hai số lớn nhất là {so_lon_nhat} và {so_lon_thu_hai}")
 
