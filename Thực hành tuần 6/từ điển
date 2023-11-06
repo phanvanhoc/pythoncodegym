@@ -1,1 +1,22 @@
+def tra_cu_tu(data, tu_can_dich):
+    for tu in data:
+        if tu == tu_can_dich:
+            return data[tu]
+    return None
+
+data_tu_dien = {
+    "hello": "xin chào",
+    "world": "thế giới",
+    "python": "ngôn ngữ lập trình Python",
+    # Thêm các từ khác và nghĩa tương ứng tại đây
+}
+
+input_word = input("Nhập từ cần dịch: ")
+
+translated_word = tra_cu_tu(data_tu_dien, input_word)
+
+if translated_word is not None:
+    print(f"Nghĩa của từ '{input_word}' là: {translated_word}")
+else:
+    print(f"Từ '{input_word}' không có trong từ điển.")
 
