@@ -1,0 +1,87 @@
+class Student:
+    def __init__(self, student_id, name, dob, hometown, major, class_name):
+        self.student_id = student_id
+        self.name = name
+        self.dob = dob
+        self.hometown = hometown
+        self.major = major
+        self.class_name = class_name
+
+class Student_List:
+    def __init__(self):
+        self.student_list = []
+
+    def view_students(self):
+        for student in self.student_list:
+            print(f"ID: {student.student_id}, Name: {student.name}, DOB: {student.dob}, Hometown: {student.hometown}, Major: {student.major}, Class: {student.class_name}")
+
+    def add_student(self, student):
+        self.student_list.append(student)
+
+    def update_student(self, student_id, new_info):
+        for student in self.student_list:
+            if student.student_id == student_id:
+                student.name = new_info.get('name', student.name)
+                student.dob = new_info.get('dob', student.dob)
+                student.hometown = new_info.get('hometown', student.hometown)
+                student.major = new_info.get('major', student.major)
+                student.class_name = new_info.get('class_name', student.class_name)
+
+    def remove_student(self, student_id):
+        self.student_list = [student for student in self.student_list if student.student_id != student_id]
+
+    def search_students(self, keyword):
+        result = []
+        for student in self.student_list:
+            if (keyword.lower() in student.name.lower() or
+                keyword.lower() in student.hometown.lower() or
+                keyword.lower() in student.major.lower() or
+                keyword.lower() in student.class_name.lower()):
+                result.append(student)
+        return result
+
+    def sort_students(self, key):
+        self.student_list = sorted(self.student_list, key=lambda x: getattr(x, key))
+
+# Example usage:
+
+student_list = Student_List()
+
+student1 = Student("001", "John Doe", "2000-01-01", "New York", "Computer Science", "CS101")
+student2 = Student("002", "Jane Doe", "2001-02-02", "Los Angeles", "Engineering", "EN201")
+
+student_list.add_student(student1)
+student_list.add_student(student2)
+
+student_list.view_students()
+
+# Output:
+# ID: 001, Name: John Doe, DOB: 2000-01-01, Hometown: New York, Major: Computer Science, Class: CS101
+# ID: 002, Name: Jane Doe, DOB: 2001-02-02, Hometown: Los Angeles, Major: Engineering, Class: EN201
+
+# Update student information
+new_info = {'name': 'John Smith', 'hometown': 'San Francisco'}
+student_list.update_student("001", new_info)
+
+student_list.view_students()
+
+# Output:
+# ID: 001, Name: John Smith, DOB: 2000-01-01, Hometown: San Francisco, Major: Computer Science, Class: CS101
+# ID: 002, Name: Jane Doe, DOB: 2001-02-02, Hometown: Los Angeles, Major: Engineering, Class: EN201
+
+# Search students
+result = student_list.search_students("Engineering")
+
+for student in result:
+    print(f"ID: {student.student_id}, Name: {student.name}, Major: {student.major}")
+
+# Output:
+# ID: 002, Name: Jane Doe, Major: Engineering
+
+# Remove a student
+student_list.remove_student("001")
+
+student_list.view_students()
+
+# Output:
+# ID: 002, Name: Jane Doe, DOB: 2001-02-02, Hometown: Los Angeles, Major: Engineering, Class: EN201
