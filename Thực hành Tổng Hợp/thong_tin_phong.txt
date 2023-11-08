@@ -1,0 +1,12 @@
+Số phòng: 106
+Sức chứa: 5 nguoi
+Tình trạng: tot
+Giá: 800.000 VND
+Thời gian đặt phòng: 25/8/2023
+Nhận xét: phuc vu tot
+Tên khách hàng: nguyen van nam
+Số CCCD: 256874556
+Thời gian vào: 15h30
+Thời gian thuê phòng: 2ngay
+Sản phẩm yêu cầu: them nuoc loc
+
